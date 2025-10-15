@@ -3,8 +3,11 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
-
+ 
 In the project directory, you can run:
+
+### `npm gql:build`
+Creates Graphql types in `src/__generated__`. Run once after npm `npm install`.
 
 ### `npm start`
 
