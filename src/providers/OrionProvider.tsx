@@ -39,14 +39,14 @@ export const OrionProvider: React.FC<PropsWithChildren> = ({ children }) => {
     () => createApolloClient()
   );
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
-  const { gleevOperatorKey } = useContext(SettingsContext);
+  const { operatorKey } = useContext(SettingsContext);
 
   useEffect(() => {
-    if (gleevOperatorKey) {
+    if (operatorKey) {
       console.log("Authenticating...");
       fetch(`${getEnv("ORION_AUTH_ENDPOINT")}/anonymous-auth`, {
         method: "POST",
-        body: JSON.stringify({ userId: gleevOperatorKey }),
+        body: JSON.stringify({ userId: operatorKey }),
         headers: {
           "Content-Type": "application/json",
         },
@@ -63,7 +63,7 @@ export const OrionProvider: React.FC<PropsWithChildren> = ({ children }) => {
         })
         .catch((e) => console.error("Auth error:", e));
     }
-  }, [gleevOperatorKey]);
+  }, [operatorKey]);
 
   return (
     <ApolloProvider client={client}>
