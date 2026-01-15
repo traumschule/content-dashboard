@@ -12,7 +12,7 @@ type SettingsWidgetProps = {
 };
 
 export type Settings = {
-  gleevOperatorKey?: string;
+  operatorKey?: string;
 };
 
 const SettingsBox = styled.div`
@@ -42,14 +42,14 @@ export function SettingsWidget({
             }}
           >
             <FormField>
-              <label>Gleev operator key</label>
+              <label>Atlas operator key</label>
               <Input
-                placeholder="Gleev operator key"
-                value={settings.gleevOperatorKey}
+                placeholder="Operator key"
+                value={settings.operatorKey}
                 onChange={(e) =>
                   setSettings((s) => ({
                     ...s,
-                    gleevOperatorKey: e.target.value,
+                    operatorKey: e.target.value,
                   }))
                 }
               />
