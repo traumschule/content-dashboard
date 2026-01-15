@@ -4,13 +4,13 @@ import SettingsWidget, { Settings } from "../components/SettingsWidget";
 export const SettingsContext = createContext<Settings>({});
 
 export const SettingsProvider: React.FC<PropsWithChildren> = ({ children }) => {
-  const [gleevOperatorKey, setGleevOperatorKey] = useState<string>();
+  const [operatorKey, setOperatorKey] = useState<string>();
   return (
-    <SettingsContext.Provider value={{ gleevOperatorKey }}>
+    <SettingsContext.Provider value={{ operatorKey }}>
       <SettingsWidget
-        currentSettings={{ gleevOperatorKey: gleevOperatorKey || "" }}
-        onSubmit={({ gleevOperatorKey }) =>
-          setGleevOperatorKey(gleevOperatorKey)
+        currentSettings={{ operatorKey: operatorKey || "" }}
+        onSubmit={({ operatorKey }) =>
+          setOperatorKey(operatorKey)
         }
       />
       {children}
